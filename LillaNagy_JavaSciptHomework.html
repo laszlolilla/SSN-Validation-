@@ -1,0 +1,86 @@
+<!--JavaScript Homework
+
+Verify if a SSN (CNP) is valid, based on user’s birthdate:
+Add a label and input for SSN
+Add a label and input for day, month and year (one for each)
+Add a “Verify” button
+when clicked, check if:
+the SSN field is not empty and has the right format (13 characters)
+the day, month and year values are not empty
+the day field is a number between 1-31
+the month field is a number between 1-12
+the year is a number between 1-2017
+the day, month and year match those written in the SSN field
+pay special attention to the case when the day or month is below 10
+display a relevant message for the user
+Please send 2 files (one .html and one .js).
+
+-->
+
+<!DOCTYPE HTML>
+<head>
+	<title>Verify CNP</title>
+</head>
+<body>
+<form name="myForm" ID="clientdata">
+
+	<label>CNP:</label>
+	<input type="string" name="ssn" id="cnp"/><br/>
+	
+	<label>Year of birth:</label>
+	<input type="string" name="yearob" id="year"/><br/>
+	
+	<label>Month of birth:</label>
+	<input type="string" name="monthob" id="month"/><br/>
+	
+	<label>Day of birth:</label>
+	<input type="string" name="dayob" id="day"/><br/>
+	
+	<input type="submit" id="button" value="Verify CNP" onclick="getCNPNumber()"/>
+	
+</form>	
+
+	
+	
+	
+<!-- CNP is a 13 digit string, we have to substring the 2nd and 3rd, 4th and 5th, 6th and 7th digits
+	2nd and 3rd digits=year of birth(short version)
+		(numbers between 00 and 99)
+		- if client enters another character: alert("Please check the 2nd and 3rd digit, you have to use numbers only")
+		
+	
+	4th 5th = month of birth
+		(numbers between 01 and 12)
+		- if client enters another character: console.log("Please check the 4th and 5th digits, you have to use numbers only")
+		- if client enters another number: alert("Please check the 4th and 5th digits, the numbers must be between 01 and 12")
+		
+
+	
+	6th and 7th digits= day of birth
+		(numbers between 01 and 31)
+		- if client enters another character: alert("Please check the 6th and 7th digits, you have to use numbers only")
+		- if client enters another number: alert("Please check the 6th and 7th digits, the numbers must be between 01 and 31")
+		
+	
+	
+Year of birth: a 4 digit number
+- if client writes other than number: console.log("You have to enter a valid birthyear")
+
+Month of birth: 2 digit number between 01 and 12
+- if client enters other  number or a letter: console.log("Please enter a valid month")
+
+Day of birth: 2 digit number between 01 and 31
+-if client enters other number or other character: console.log("Please enter a valid day")
+
+
+
+-->
+
+	<script type="text/javascript" src="LillaNagy_JavaScriptHomework.js"></script>
+
+	
+	
+	
+
+
+</body>

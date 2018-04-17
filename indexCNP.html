@@ -1,0 +1,70 @@
+<html>
+<head>
+
+<title> Validare CNP </title>
+<script type="text/javascript">
+
+function verificare() {
+
+var cod = document.getElementById("cnp");
+var lungime = cod.value.length;
+var cnpzi = cod.value.substr(5,2);
+var cnpluna = cod.value.substr(3,2);
+var cnpan = cod.value.substr(1,2);
+var cnpsex = cod.value.substr(0,1);
+var anform = document.getElementById("anulnasterii")
+var an = anform.value.slice(-2)
+var lunaform = document.getElementById("lunanasterii")
+var luna = lunaform.value.slice(-2)
+var ziform = document.getElementById("ziuanasterii")
+var zi = ziform.value.slice(-2)
+
+if (isNaN(cod.value) == true) {
+	alert("CNP ul poate  sa contina doar cifre! Te rog sa introduci din nou.")
+}
+else if (lungime != 13) {alert("CNP-ul trebuie sa contina 13 caractere! Te rog sa introduci din nou.")
+}
+else if (cnpzi != zi) { alert("Ziua de nastere nu corespunde cu CNP! Te rog verifica datele.")
+}			
+else if (cnpluna.value != luna.value) {alert("Luna nasterii nu corespunde cu CNP! Te rog verifica datele!")
+}
+else if (cnpan.value != an.value) { alert("Anul nasterii nu corespunde cu CNP! Te rog verifica datele")
+}
+else { alert ("Iti multumim pentru datele introduse, acestea au fost validate.")
+}	
+}
+
+/*vom avea nevoie de variabile:
+
+cnpintrodus - cifra introdusa ca si cnp de client. va trebui verificat lingimea cifrei si daca contine alte caratere decat numere
+cnpsex -  cifra de pe pozitia 0, nu verificam
+cnpan - pozitiile 1 si 2, de verificat daca corespunde cu anul introdus de client
+cnpluna - poyitiile 3 si 4, de verificat daca corespunde cu luna introdusa de client
+cnpzi - pozitiile 5 si 6, de veroificat daca coresounde cu ziua introdusa de client
+*/
+
+</script>
+
+</head>
+
+<body>
+<form name="myform" id="dateclient">
+Nume <br>
+<input type= "text"  id="nume"><br>
+Prenume <br>
+<input type= "text" id="prenume"><br> 
+Anul Nasterii <br>
+<input type= "text" id="anulnasterii"><br>
+Luna <br>
+<input type= "number" id="lunanasterii"><br>
+Ziua <br>
+<input type= "text" id="ziuanasterii"><br>
+CNP <br>
+<input id="cnp"><br>
+
+<input type= "submit" value= "Valideaza" onClick="verificare()"><br>
+
+</form>
+
+</body>
+</html>
